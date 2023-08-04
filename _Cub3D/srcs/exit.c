@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avilla-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: avilla-m <avilla-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 12:21:06 by avilla-m          #+#    #+#             */
-/*   Updated: 2022/07/14 12:21:08 by avilla-m         ###   ########.fr       */
+/*   Updated: 2023/08/04 21:45:00 by avilla-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_exit(t_hold *hold, int status)
 		ft_putstr_fd("\n>> Program failed\n", 1);
 	else
 		ft_putstr_fd("\n>> Program exited successfully\n", 1);
-	char *str = ft_strjoin("kill afplay ", ft_itoa(hold->afplay_pid));
+	char *str = ft_strjoin("kill aplay ", ft_itoa(hold->afplay_pid));
 	system(str);
 	ft_putstr_fd("-----------------------------------------------------\n", 1);
 	exit(status);

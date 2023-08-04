@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avilla-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: avilla-m <avilla-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 12:19:03 by avilla-m          #+#    #+#             */
-/*   Updated: 2022/07/14 12:19:05 by avilla-m         ###   ########.fr       */
+/*   Updated: 2023/08/04 21:42:50 by avilla-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,11 @@ t_tex	*ft_get_wall_texture(t_hold *hold, int i)
 	return (tex);
 }
 
-int	ft_calc_wall_x(t_hold *hold, int idx, t_pt wall, t_tex *tex)
+int	ft_calc_wall_x(t_hold *hold, int idx, t_tex *tex)
 {
 	float	temp;
-	int		wall_height;
 	int		ret;
 
-	wall_height = wall.y - wall.x;
 	if (hold->hit[WALL_ORIENTATION][idx] == e_wall_east \
 	|| hold->hit[WALL_ORIENTATION][idx] == e_wall_west)
 		temp = hold->pl_w.y + (hold->hit[DIS][idx] * hold->hit[IY][idx]);
@@ -92,12 +90,12 @@ int	ft_calc_wall_x(t_hold *hold, int idx, t_pt wall, t_tex *tex)
 	if (hold->hit[WALL_ORIENTATION][idx] == e_wall_east \
 	|| hold->hit[WALL_ORIENTATION][idx] == e_wall_west)
 	{
-		if (hold->hit[IX] > 0)
+		if (hold->hit[IX][0] > 0) //!
 			ret = tex->w - ret - 1;
 	}
 	else
 	{
-		if (hold->hit[IY] < 0)
+		if (hold->hit[IY][0] < 0) //!
 			ret = tex->w - ret - 1;
 	}
 	return (ret);
@@ -112,7 +110,7 @@ void	ft_line_tex(t_hold *hold, int idx, t_pt wall, t_tex *tex)
 
 	if (tex == 0)
 		return ;
-	wall_pt.x = ft_calc_wall_x(hold, idx, wall, tex);
+	wall_pt.x = ft_calc_wall_x(hold, idx, tex);
 	wall_height = wall.y - wall.x;
 	step = (float)tex->h / (float)wall_height;
 	temp = (wall.x - (WIN_HEIGHT / 2) + (wall_height / 2)) * step;

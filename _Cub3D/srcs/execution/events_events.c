@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   events.c                                           :+:      :+:    :+:   */
+/*   events_events.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avilla-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: avilla-m <avilla-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 12:18:14 by avilla-m          #+#    #+#             */
-/*   Updated: 2022/07/14 12:18:16 by avilla-m         ###   ########.fr       */
+/*   Updated: 2023/08/04 21:45:00 by avilla-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	ft_move(t_hold *hold, int angle)
 		}
 		if (position == SPRITE)
 		{
-			system("afplay ./files/Light.mp3&");
+			system("aplay ./files/Light.mp3&");
 			hold->counter_sprite++;
 			hold->map[(int)w_pos.y][(int)w_pos.x] = EMPTY;
 		}

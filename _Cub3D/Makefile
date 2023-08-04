@@ -8,13 +8,10 @@ LIB_DIR				= ./lib
 LIBFT_DIR			= $(LIB_DIR)/libft
 LIBFT_A				= $(LIBFT_DIR)/libft.a
 
-MLX_DIR				= $(LIB_DIR)/mlx/mlx
-# MLX_DIR				= $(LIB_DIR)/mlx/minilibx-linux
-MLX_DYLIB			= libmlx.dylib
-# MLX_A				= $(MLX_DIR)/libmlx_Linux.a
+MLX_DIR				= $(LIB_DIR)/minilibx-linux
+MLX_A				= $(MLX_DIR)/libmlx_Linux.a
 
-LIB_A				= $(LIBFT_A) $(MLX_DYLIB) 
-# LIB_A				= $(LIBFT_A) $(MLX_A)
+LIB_A				= $(LIBFT_A) $(MLX_A)
 HEAD_DIR			= ./include
 
 # Sources 
@@ -80,9 +77,8 @@ OBJS				= $(patsubst $(SRCS_DIR)%,$(OBJS_DIR)%,$(SRCS:.c=.o))
 
 # Flags and libraries
 INCLUDES			= -I $(LIBFT_DIR) -I $(MLX_DIR) -I $(HEAD_DIR)
-CFLAGS 				= -Wall -Wextra -Werror $(INCLUDES) -g #-fsanitize=address
-MLX_FLAGS			= $(MLX_DYLIB) -g -L $(MLX_DIR) -framework Metal -framework AppKit -F/Library/Frameworks
-# MLX_FLAGS			= $(MLX_A) -L $(MLX_DIR) -I $(MLX_DIR) -lXext -lX11 -lm -lz
+CFLAGS 				= -Wall -Wextra -Werror $(INCLUDES)
+MLX_FLAGS			= $(MLX_A) -L $(MLX_DIR) -I $(MLX_DIR) -lXext -lX11 -lm -lz
 
 # Colors
 GREEN 				= \033[01;32m
@@ -111,8 +107,7 @@ $(OBJS_DIR):
 libraries:			
 					@printf "Making libft..." && make -C $(LIBFT_DIR) && echo "$(GREEN)Libft successfully compiled $(RESET)"
 					@printf "Making mlx..." && make -C $(MLX_DIR) && echo "$(GREEN)Mlx successfully compiled $(RESET)"
-					@mv $(MLX_DIR)/$(MLX_DYLIB) .
-# this last line to be commented if on linux
+
 clean:				
 					@make clean -C $(LIBFT_DIR)
 					@make clean -C $(MLX_DIR)

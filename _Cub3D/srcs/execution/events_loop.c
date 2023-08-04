@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   events.c                                           :+:      :+:    :+:   */
+/*   events_loop.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avilla-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: avilla-m <avilla-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 12:18:14 by avilla-m          #+#    #+#             */
-/*   Updated: 2022/07/14 12:18:16 by avilla-m         ###   ########.fr       */
+/*   Updated: 2023/08/04 21:45:00 by avilla-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_event(int keycode, t_hold *hold)
 	{
 		ft_event_bonus(hold);
 		if (hold->bonus_start == 0)
-			hold->afplay_pid = system("afplay ./files/Warabe_Uta.mp3&");
+			hold->afplay_pid = system("aplay ./files/Warabe_Uta.mp3&");
 		hold->bonus_start = 1;
 	}
 	if (keycode == KEYCODE_ESC)

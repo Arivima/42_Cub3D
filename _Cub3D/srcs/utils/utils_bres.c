@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_bres.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avilla-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: avilla-m <avilla-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:07:24 by avilla-m          #+#    #+#             */
-/*   Updated: 2021/12/08 18:07:29 by avilla-m         ###   ########.fr       */
+/*   Updated: 2023/08/04 21:43:28 by avilla-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_mlx_pixel_put(t_img *img, int x, int y, int color)
 
 	if (img && img->addr && img->line_length && img->bits_per_pixel
 		&& x >= 0 && x < WIN_WIDTH && y >= 0 && y < WIN_HEIGHT
-		&& color >= 0 && color <= 0xFFFFFFFF)
+		&& color >= 0 && (unsigned long)color <= 0xFFFFFFFF)
 	{
 		temp = img->bits_per_pixel / 8;
 		dst = img->addr + (y * img->line_length + x * temp);

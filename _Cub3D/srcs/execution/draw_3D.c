@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_3D.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avilla-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: avilla-m <avilla-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 12:17:47 by avilla-m          #+#    #+#             */
-/*   Updated: 2022/07/14 12:17:49 by avilla-m         ###   ########.fr       */
+/*   Updated: 2023/08/04 21:35:14 by avilla-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 int	ft_put_walls(t_hold *hold)
 {
 	int		i;
-	float	max;
 	int		wall_height;
 	int		draw_start;
 	int		draw_end;
 
 	debug("   ft_put_walls");
-	max = (float)sqrt(pow(WIN_WIDTH * (hold->map_w - 2), 2) + \
-	pow(WIN_WIDTH * (hold->map_h - 2), 2));
+	pow(WIN_WIDTH * (hold->map_h - 2), 2);
 	i = -1;
 	while (++i < WIN_WIDTH)
 	{
